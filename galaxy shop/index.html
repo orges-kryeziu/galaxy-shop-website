@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Shop - Expanded Edition</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6f91, #ffc107, #00ccff);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffc107;
+            text-shadow: 0 0 15px #ff6f91, 0 0 30px #00ccff;
+        }
+
+        nav a {
+            color: #ff6f91;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffc107;
+            text-shadow: 0 0 15px #00ccff, 0 0 30px #ffc107;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .fabulous-button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #ff6f91, #ffc107, #00ccff);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.5);
+            cursor: pointer;
+            transition: box-shadow 0.5s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .fabulous-button:hover {
+            box-shadow: 0 0 30px #ffc107, 0 0 50px #ff6f91;
+            transform: translateY(-5px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #ff6f91;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+            border-radius: 20px;
+            width: 300px;
+            padding: 1rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ffc107;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.9);
+            color: #ff6f91;
+            box-shadow: 0 -5px 15px rgba(255, 105, 180, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Galaxy Shop 🌟</h1>
+        <nav>
+            <a onclick="showSection('homepage')">Home</a>
+            <a onclick="showSection('products')">Products</a>
+            <a onclick="showSection('cart')">Cart</a>
+        </nav>
+    </header>
+
+    <!-- Homepage Section -->
+    <section id="homepage">
+        <h2>Welcome to Galaxy Shop</h2>
+        <p>Explore the most fabulous and futuristic products in the galaxy.</p>
+        <button class="fabulous-button" onclick="showSection('products')">Enter Shop</button>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="hidden">
+        <h2>Our Fabulous Products</h2>
+        <div class="product-grid">
+            <!-- Existing Products -->
+            <div class="product-card">
+                <img src="foto1.jpg" alt="Luxury Shoes">
+                <h3>Luxury Shoes</h3>
+                <p>$299</p>
+                <button class="fabulous-button" onclick="addToCart('Luxury Shoes', 299)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="foto2.jpg" alt="Glitter VR Glasses">
+                <h3>Glitter VR Glasses</h3>
+                <p>$799</p>
+                <button class="fabulous-button" onclick="addToCart('Glitter VR Glasses', 799)">Add to Cart</button>
+            </div>
+
+            <!-- More New Products -->
+            <div class="product-card">
+                <img src="foto3.jpg" alt="Space Sneakers">
+                <h3>Space Sneakers</h3>
+                <p>$399</p>
+                <button class="fabulous-button" onclick="addToCart('Space Sneakers', 399)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="foto4.jpg" alt="Nebula Earrings">
+                <h3>Nebula Earrings</h3>
+                <p>$149</p>
+                <button class="fabulous-button" onclick="addToCart('Nebula Earrings', 149)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="foto5.jpg" alt="Galaxy Headphones">
+                <h3>Galaxy Headphones</h3>
+                <p>$599</p>
+                <button class="fabulous-button" onclick="addToCart('Galaxy Headphones', 599)">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="foto6.jpg" alt="Astro Desk Lamp">
+                <h3>Astro Desk Lamp</h3>
+                <p>$129</p>
+                <button class="fabulous-button" onclick="addToCart('Astro Desk Lamp', 129)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="hidden">
+        <h2>Your Fabulous Cart</h2>
+        <div id="cart-items">
+            <p>Your cart is currently empty.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2125 Galaxy Shop - Fabulous Edition. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Show/Hide Sections Dynamically
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        // Cart Functionality
+        const cart = [];
+        function addToCart(productName, productPrice) {
+            cart.push({ name: productName, price: productPrice });
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = cart.length 
+                ? cart.map(item => `<p>${item.name} - $${item.price}</p>`).join('')
+                : '<p>Your cart is currently empty.</p>';
+        }
+    </script>
+</body>
+</html>
